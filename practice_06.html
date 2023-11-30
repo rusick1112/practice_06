@@ -29,27 +29,101 @@ class tarelka extends posuda{
 }
 
 
-class trlc{
-    glbn() {
-      alert(`${this.name} красивая`);
-  }
-  str() {
-    super.glb(17);
-    this.glbn()
-  }
-
-}
 
 
-// let tarelochka = new tarelka("Синяя Тарелка", 10);
-// alert(tarelochka.name);
-// alert(tarelochka.lenth);
+
+
+
+// 1 задание
+let tarelochka = new tarelka("Синяя Тарелка", 10);
+alert(tarelochka.name);
+alert(tarelochka.lenth);
 
 let proto = tarelka.prototype;
 while (proto != Object.prototype) {
     console.log(proto.constructor.name, proto.constructor)
     proto = Object.getPrototypeOf(proto);
 }
+
+// 2 задание
+class rta{
+
+  constructor(rtf,dsc) {
+    this.rtf = rtf;
+    this.dsc = dsc;
+  }
+
+}
+
+rta._proto_ = null;
+
+// 3 задание
+class pds{
+    constructor(name,mat){
+      this.name = name;
+      this.mat = mat;
+      } 
+
+      glbn(name) {
+      this.name = name;
+      return(`${this.name} красивая`);
+    }
+    }
+
+
+class trlc {
+  constructor(name,mat){
+      this.name = name;
+      this.mat = mat;
+      } 
+      
+  glbn(name) {
+      this.name = name;
+      alert(`${this.name} красивая`);
+    }
+
+    static call(scd, name, mat) {
+
+    }
+  }
+
+class scd extends pds {
+  constructor(name,mat){
+    super(name,mat);
+    trlc.call(this, name, mat);
+      }
+      glbn() {
+      return (`${super.glbn()} ${trlc.prototype.glbn.call(this)}`);
+      }
+    }
+
+    const pialka = new scd("Пиалка");
+  console.log(pialka.glbn());
+
+
+// 4 задание
+class otec {
+
+}
+
+class con extends otec {
+    __proto__;
+    constructor() {
+      super();
+      delete this.__proto__;
+    }
+  }
+
+// 5 задание
+class MyArray extends Array {
+    constructor(args) {
+      super(args);
+    }
+  }
+
+  const myArray = new MyArray(1, 2, 3);
+  console.log(myArray instanceof Array);
+
 
 
 </script>
